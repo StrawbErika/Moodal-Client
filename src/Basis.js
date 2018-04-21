@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import "./Basis.css";
 import 'semantic-ui-css/semantic.min.css';
-import { Sidebar, Segment, Button, Menu, Image, Icon, Header } from 'semantic-ui-react'
+import { Sidebar, Segment, Button, Menu, Image, Icon, Header, Input } from 'semantic-ui-react'
 
 class Basis extends Component {
 
@@ -22,19 +22,23 @@ class Basis extends Component {
                 </button>
             </div>
             <div id="main-size">
+        
                 <Sidebar.Pushable as={Segment}>
-                <Sidebar as={Menu} animation='overlay' width='thin' visible={visible} icon='labeled' vertical inverted>
-                    <Menu.Item name='home'>
-                    <Icon name='home' />
-                    Home
+                <Sidebar as={Menu} animation='overlay' width='thin' visible={visible} icon='labeled' vertical inverted id="side-bar">
+                    <Menu.Item>
+                    <Input placeholder='Search' id="search"/>
                     </Menu.Item>
-                    <Menu.Item name='gamepad'>
-                    <Icon name='gamepad' />
-                    Games
+                    <Menu.Item name='Email'>
+                    <Icon name='mail outline' />
+                    Email
                     </Menu.Item>
-                    <Menu.Item name='camera'>
-                    <Icon name='camera' />
-                    Channels
+                    <Menu.Item name='Class 1'>
+                    <Icon name='circle thin' />
+                    Class 1
+                    </Menu.Item>
+                    <Menu.Item name='Class 2'>
+                    <Icon name='circle thin' />
+                    Class 2
                     </Menu.Item>
                 </Sidebar>
                 <Sidebar.Pusher>

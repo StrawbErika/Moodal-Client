@@ -30,6 +30,16 @@
     display: flex;
     height: 70px;
     width: 100%;
+    margin-bottom: 0px;
     /* position: fixed; */
 }
 
+#side-bar{
+    width: 250px;
+    height: 100%;
+}
+
+#search{
+    height:35px;
+    border-radius: 20px; /* CSS3 */
+}
