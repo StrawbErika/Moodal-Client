@@ -1,0 +1,26 @@
+@font-face {
+    font-family: "Comfortaa";
+    src: url("/fonts/Comfortaa-Bold.ttf") format("ttf");
+}
+
+#header-text{
+    font-family: "Comfortaa";
+}
+
+#circle-button{
+    width: 50px;
+    height: 50px;
+}
+
+#nav-body{
+    padding-left: 250px;
+}
+
+#nav{
+    text-align: center;
+    display: flex;
+    height: 70px;
+    width: 100%;
+    position: fixed;
+}
+
