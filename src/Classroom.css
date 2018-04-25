@@ -1,0 +1,41 @@
+@font-face {
+    font-family: "Comfortaa";
+    src: url("/fonts/Comfortaa-Bold.ttf");
+}
+
+#header-text{
+    font-family: "Comfortaa";
+    margin: auto;
+    color: #ffad69;
+}
+
+
+#add-post-button{
+    width: 100px;
+    height: 100px;
+}
+
+
+#classroom-size{
+    padding-left: 30%;
+    padding-right: 30%;
+    padding-top: 20px;
+    width:100vw;
+    height:100vh;
+    align-content: center;
+}
+
+#classroom-card-size{
+    width: 100%;
+}
+
+#comment-segment{
+    background-color: rgb(238,238,238);
+}
+
+#comment-input{
+    background-color: rgb(238,238,238);
+    height:35px;
+    border: none;
+}
+
