@@ -5,7 +5,7 @@
 
 #header-text{
     font-family: "Comfortaa";
-    margin: auto;
+    text-align: center;
     color: #ffad69;
 }
 
@@ -34,6 +34,7 @@
 }
 
 #main-size{
+    padding-top: 70px;
     width:100vw;
     height:100vh;
 }
@@ -46,7 +47,8 @@
     height: 70px;
     width: 100%;
     margin-bottom: 0px;
-    /* position: fixed; */
+    position: fixed;
+    z-index: 99;
 }
 
 #side-bar{

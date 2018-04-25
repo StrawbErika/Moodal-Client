@@ -1,3 +1,6 @@
+p, h2{
+    text-align: center;
+}
 @font-face {
     font-family: "Comfortaa";
     src: url("/fonts/Comfortaa-Bold.ttf");
@@ -8,20 +11,30 @@
     margin: auto;
     color: #ffad69;
 }
-
-
-#add-post-button{
-    width: 100px;
-    height: 100px;
+ 
+#classroom-header{
+    height: 200px;
+    padding-top: 70px;
 }
 
+#add-post-button{
+    width: 70px;
+    height: 70px;
+    position:fixed !important;
+    bottom:40px;
+    right:10px;
+}
 
 #classroom-size{
+    width:100vw;
+    height:100vh;
+
+}
+
+#classroom-cards{
     padding-left: 30%;
     padding-right: 30%;
     padding-top: 20px;
-    width:100vw;
-    height:100vh;
     align-content: center;
 }
 
