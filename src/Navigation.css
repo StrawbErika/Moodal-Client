@@ -51,6 +51,11 @@
     z-index: 99;
 }
 
+#add-input{
+    border-left: none;
+    border-right: none;
+    border-top: none;
+}
 #side-bar{
     width: 250px;
     height: 100%;

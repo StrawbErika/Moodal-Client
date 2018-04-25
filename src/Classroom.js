@@ -11,7 +11,7 @@ class Classroom extends Component {
             <div id="classroom-size">
                 <div id = "classroom-header">
                     <Header as='h2'>CMSC 100 2nd Sem 2017-18 </Header>
-                    <p> Monina Carndang </p>
+                    <p> Monina Carandang </p>
                 </div>
                 <Divider/>
                 <div id="classroom-cards">
