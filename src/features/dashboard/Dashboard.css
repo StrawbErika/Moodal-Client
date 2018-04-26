@@ -1,0 +1,9 @@
+.dashboard {
+	padding-top: 30px;
+	padding-left: 30px;
+	padding-right: 30px;
+}
+
+.dashboard-card {
+	width: 400px !important;
+}
