@@ -12,7 +12,7 @@ class Navigation extends Component {
         const { visible } = this.state;
 
         return (
-            <div>
+            <div className="navigation-main">
                 <div className="ui pointing menu" id="nav">
                     <Button
                         onClick={this.toggleVisibility}
@@ -22,7 +22,10 @@ class Navigation extends Component {
                     >
                         <i aria-hidden="true" className="align justify icon" />
                     </Button>
-                    <h1 id="header-text"> moodal </h1>
+                    <h1 id="header-text">
+                        {' '}
+                        moodal <span className="label-text">student</span>{' '}
+                    </h1>
                     <AddClass />
                     <Button
                         className="ui circular icon button"
@@ -60,7 +63,7 @@ class Navigation extends Component {
                                 Class 2
                             </Menu.Item>
                         </Sidebar>
-                        <Sidebar.Pusher>
+                        <Sidebar.Pusher className="main-section">
                             <Routes />
                         </Sidebar.Pusher>
                     </Sidebar.Pushable>
