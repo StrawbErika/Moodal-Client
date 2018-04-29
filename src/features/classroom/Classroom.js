@@ -13,7 +13,7 @@ class Classroom extends Component {
                 </div>
                 <Divider />
                 <div id="classroom-cards">
-                    <ClassroomCards />
+                    <ClassroomCards/>
                 </div>
                 <Button
                     className="ui circular icon button"
