@@ -1,53 +1,43 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-import { Header, Divider, Button, Menu, Segment, Popup } from 'semantic-ui-react';
+import { Button, Segment, Popup } from 'semantic-ui-react';
+import '../classroom/Classroom.css';
+
+const students = [
+	{ key: 1, name: "Erika Louise A. Nepomuceno" },
+	{ key: 2, name: "Erika Louise A. Nepomuceno" },
+	{ key: 3, name: "Erika Louise A. Nepomuceno" },
+	{ key: 4, name: "Erika Louise A. Nepomuceno" }
+];
 
 class Students extends Component {
-    state = {activeItem: 'students', visible: false, routes: null };
-    toggleVisibility = () => this.setState({ visible: !this.state.visible });
-    handleItemClick = (e, { name }) => this.setState({ activeItem: name })
-
     render() {
-        const { activeItem } = this.state
         return (
-            <div id="classroom-size">
-                <div id="classroom-header">
-                    <Header as="h2">CMSC 100 2nd Sem 2017-18 </Header>
-                    <p> Monina Carandang </p>
-                </div>
-                <Divider />
+            <div>
+                {students.map((student, index) => (
+                    <Segment textAlign='left'key={index}>
+                        {student.name}
+                        <Button
+                            floated='right'
+                            role="button"
+                            id="trash-button"
+                        >
+                            <i className="trash icon" />
+                        </Button>
 
-                <Menu attached='top' tabular id="classroom-buttons">
-                    <Menu.Item 
-                        name='stream' 
-                        active={activeItem === 'stream'} 
-                        onClick={this.handleItemClick} 
-                        as={Link}
-                        to="/classroom"/>
-                    <Menu.Item 
-                        name='students' 
-                        active={activeItem === 'students'} 
-                        onClick={this.handleItemClick}/>
-                </Menu>
-
-                <Segment attached='bottom' id="classroom-segment">
-                    <div id="classroom-cards">
-                    </div>
-                    <Popup
-                        trigger={
-                            <Button
-                                className="ui circular icon button"
-                                role="button"
-                                id="add-post-button"
-                                >
-                                <i className="add icon" />
-                            </Button>
-                        }
-                        content="Add a student here"
-                    />
-                    
-                </Segment>
-
+                    </Segment>
+                ))}
+                <Popup
+                    trigger={
+                        <Button
+                            className="ui circular icon button"
+                            role="button"
+                            id="add-post-button"
+                            >
+                            <i className="add icon" />
+                        </Button>
+                    }
+                    content="Add a student here"
+                />
             </div>
         );
     }

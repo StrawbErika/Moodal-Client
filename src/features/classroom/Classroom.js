@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-import { Header, Divider, Button, Menu, Segment, Popup } from 'semantic-ui-react';
-import ClassroomCards from './ClassroomCards';
+import { Route, Link } from 'react-router-dom';
+import { Header, Divider, Menu, Segment} from 'semantic-ui-react';
+import ClassroomFeed from '../classroom/ClassroomFeed';
+import Students from '../students/Students';
 import './Classroom.css';
 
 class Classroom extends Component {
@@ -18,37 +19,24 @@ class Classroom extends Component {
                     <p> Monina Carandang </p>
                 </div>
                 <Divider />
-
                 <Menu attached='top' tabular id="classroom-buttons">
                     <Menu.Item 
                         name='stream' 
                         active={activeItem === 'stream'} 
-                        onClick={this.handleItemClick} />
+                        onClick={this.handleItemClick}
+                        as={Link}
+                        to="/classroom/classroomFeed"/>
                     <Menu.Item 
-                        name='Students' 
+                        name='students' 
                         active={activeItem === 'students'} 
                         onClick={this.handleItemClick} 
                         as={Link}
-                        to="/students"/>
+                        to="/classroom/students"/>
                 </Menu>
 
                 <Segment attached='bottom' id="classroom-segment">
-                    <div id="classroom-cards">
-                    <ClassroomCards/>
-                    </div>
-                    <Popup
-                        trigger={
-                            <Button
-                                className="ui circular icon button"
-                                role="button"
-                                id="add-post-button"
-                                >
-                                <i className="add icon" />
-                            </Button>
-                        }
-                        content="Add a post here"
-                    />
-                    
+					<Route exact path="/classroom/classroomFeed" component={ClassroomFeed} />
+					<Route exact path="/classroom/students" component={Students} />
                 </Segment>
 
             </div>

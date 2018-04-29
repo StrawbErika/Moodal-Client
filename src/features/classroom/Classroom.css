@@ -44,6 +44,11 @@ p, h2{
     background-color: rgb(238,238,238);
 }
 
+#trash-button{
+    padding-top: 1px !important;
+    background-color: white;
+}
+
 #comment-input{
     background-color: rgb(238,238,238);
     height:35px;
