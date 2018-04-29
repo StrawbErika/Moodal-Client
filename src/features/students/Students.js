@@ -1,11 +1,9 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { Header, Divider, Button, Menu, Segment, Popup } from 'semantic-ui-react';
-import ClassroomCards from './ClassroomCards';
-import './Classroom.css';
 
-class Classroom extends Component {
-    state = {activeItem: 'stream', visible: false, routes: null };
+class Students extends Component {
+    state = {activeItem: 'students', visible: false, routes: null };
     toggleVisibility = () => this.setState({ visible: !this.state.visible });
     handleItemClick = (e, { name }) => this.setState({ activeItem: name })
 
@@ -23,18 +21,17 @@ class Classroom extends Component {
                     <Menu.Item 
                         name='stream' 
                         active={activeItem === 'stream'} 
-                        onClick={this.handleItemClick} />
-                    <Menu.Item 
-                        name='Students' 
-                        active={activeItem === 'students'} 
                         onClick={this.handleItemClick} 
                         as={Link}
-                        to="/students"/>
+                        to="/classroom"/>
+                    <Menu.Item 
+                        name='students' 
+                        active={activeItem === 'students'} 
+                        onClick={this.handleItemClick}/>
                 </Menu>
 
                 <Segment attached='bottom' id="classroom-segment">
                     <div id="classroom-cards">
-                    <ClassroomCards/>
                     </div>
                     <Popup
                         trigger={
@@ -46,7 +43,7 @@ class Classroom extends Component {
                                 <i className="add icon" />
                             </Button>
                         }
-                        content="Add a post here"
+                        content="Add a student here"
                     />
                     
                 </Segment>
@@ -56,4 +53,4 @@ class Classroom extends Component {
     }
 }
 
-export default Classroom;
+export default Students;

@@ -22,6 +22,7 @@ class AddClass extends Component {
   render() {
     return (
       <Modal
+        id = "modal-block"
         open={this.state.open}
         onOpen={this.open}
         onClose={this.close}
@@ -39,9 +40,7 @@ class AddClass extends Component {
         <Modal.Content>
           <Form>
             <Form.Input id="add-input" placeholder="Class name" />
-
             <Form.Input id="add-input" placeholder="Section" />
-
             <Form.Input id="add-input" placeholder="Subject" />
           </Form>
         </Modal.Content>
