@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Button, Segment, Popup } from 'semantic-ui-react';
 import '../classroom/Classroom.css';
+import './DeleteStudent';
+import DeleteStudent from './DeleteStudent';
 
 const students = [
 	{ key: 1, name: "Erika Louise A. Nepomuceno" },
@@ -16,14 +18,7 @@ class Students extends Component {
                 {students.map((student, index) => (
                     <Segment textAlign='left'key={index}>
                         {student.name}
-                        <Button
-                            floated='right'
-                            role="button"
-                            id="trash-button"
-                        >
-                            <i className="trash icon" />
-                        </Button>
-
+                        <DeleteStudent/>
                     </Segment>
                 ))}
                 <Popup

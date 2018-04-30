@@ -6,24 +6,24 @@ import Routes from '../routes/Routes';
 import './Navigation.css';
 
 const sideItems = [
-    { key: 1, iName: 'CMSC 100', route: '/classroom' },
-    { key: 2, iName: 'CMSC 125', route: '/classroom' },
-    { key: 3, iName: 'CMSC 140', route: '/classroom' },
-    { key: 4, iName: 'CMSC 140', route: '/classroom' },
-    { key: 5, iName: 'CMSC 140', route: '/classroom' },
-    { key: 6, iName: 'CMSC 140', route: '/classroom' },
-    { key: 7, iName: 'CMSC 140', route: '/classroom' },
-    { key: 8, iName: 'CMSC 140', route: '/classroom' },
-    { key: 9, iName: 'CMSC 11', route: '/classroom' },
-    { key: 10, iName: 'CMSC 100', route: '/classroom' },
-    { key: 11, iName: 'CMSC 100', route: '/classroom' },
-    { key: 12, iName: 'CMSC 125', route: '/classroom' },
-    { key: 13, iName: 'CMSC 140', route: '/classroom' },
-    { key: 14, iName: 'CMSC 140', route: '/classroom' },
-    { key: 15, iName: 'CMSC 140', route: '/classroom' },
-    { key: 16, iName: 'CMSC 140', route: '/classroom' },
-    { key: 17, iName: 'CMSC 140', route: '/classroom' },
-    { key: 18, iName: 'CMSC 140', route: '/classroom' }
+    { key: 1, iName: 'CMSC 100', route: '/classroom/classroomFeed' },
+    { key: 2, iName: 'CMSC 125', route: '/classroom/classroomFeed' },
+    { key: 3, iName: 'CMSC 140', route: '/classroom/classroomFeed' },
+    { key: 4, iName: 'CMSC 140', route: '/classroom/classroomFeed' },
+    { key: 5, iName: 'CMSC 140', route: '/classroom/classroomFeed' },
+    { key: 6, iName: 'CMSC 140', route: '/classroom/classroomFeed' },
+    { key: 7, iName: 'CMSC 140', route: '/classroom/classroomFeed' },
+    { key: 8, iName: 'CMSC 140', route: '/classroom/classroomFeed' },
+    { key: 9, iName: 'CMSC 11', route: '/classroom/classroomFeed' },
+    { key: 10, iName: 'CMSC 100', route: '/classroom/classroomFeed' },
+    { key: 11, iName: 'CMSC 100', route: '/classroom/classroomFeed' },
+    { key: 12, iName: 'CMSC 125', route: '/classroom/classroomFeed' },
+    { key: 13, iName: 'CMSC 140', route: '/classroom/classroomFeed' },
+    { key: 14, iName: 'CMSC 140', route: '/classroom/classroomFeed' },
+    { key: 15, iName: 'CMSC 140', route: '/classroom/classroomFeed' },
+    { key: 16, iName: 'CMSC 140', route: '/classroom/classroomFeed' },
+    { key: 17, iName: 'CMSC 140', route: '/classroom/classroomFeed' },
+    { key: 18, iName: 'CMSC 140', route: '/classroom/classroomFeed' }
 
 ];
 
