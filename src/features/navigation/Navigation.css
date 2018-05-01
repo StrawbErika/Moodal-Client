@@ -65,6 +65,7 @@
 #side-bar {
     width: 250px;
     height: 100vh;
+    overflow: auto;
     position: fixed !important;
     z-index: 99;
 }
@@ -76,6 +77,7 @@
 
 #modal-block {
     display: block !important;
+    margin: auto !important;
 }
 
 .navigation-main {
