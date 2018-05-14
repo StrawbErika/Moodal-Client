@@ -3,10 +3,10 @@ import { Button, Segment, Popup } from 'semantic-ui-react';
 import '../classroom/Classroom.css';
 
 const students = [
-	{ key: 1, name: "Erika Louise A. Nepomuceno" },
-	{ key: 2, name: "Erika Louise A. Nepomuceno" },
-	{ key: 3, name: "Erika Louise A. Nepomuceno" },
-	{ key: 4, name: "Erika Louise A. Nepomuceno" }
+    { key: 1, name: 'Erika Louise A. Nepomuceno' },
+    { key: 2, name: 'Erika Louise A. Nepomuceno' },
+    { key: 3, name: 'Erika Louise A. Nepomuceno' },
+    { key: 4, name: 'Erika Louise A. Nepomuceno' }
 ];
 
 class Students extends Component {
@@ -14,16 +14,11 @@ class Students extends Component {
         return (
             <div>
                 {students.map((student, index) => (
-                    <Segment textAlign='left'key={index}>
+                    <Segment textAlign="left" key={index}>
                         {student.name}
-                        <Button
-                            floated='right'
-                            role="button"
-                            id="trash-button"
-                        >
+                        <Button floated="right" role="button" id="trash-button">
                             <i className="trash icon" />
                         </Button>
-
                     </Segment>
                 ))}
                 <Popup
@@ -32,7 +27,7 @@ class Students extends Component {
                             className="ui circular icon button"
                             role="button"
                             id="add-post-button"
-                            >
+                        >
                             <i className="add icon" />
                         </Button>
                     }
