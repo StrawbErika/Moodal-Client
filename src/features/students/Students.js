@@ -4,7 +4,6 @@ import '../classroom/Classroom.css';
 import './DeleteStudent';
 import DeleteStudent from './DeleteStudent';
 import * as API from '../../api';
-import AddStudent from './AddStudent';
 
 class Students extends Component {
     constructor() {
@@ -41,7 +40,6 @@ class Students extends Component {
                         <DeleteStudent />
                     </Segment>
                 ))}
-                <AddStudent />
             </div>
         );
     }

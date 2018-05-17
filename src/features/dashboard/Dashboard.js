@@ -4,6 +4,7 @@ import { Card, Button, Image } from 'semantic-ui-react';
 import * as API from '../../api';
 import './Dashboard.css';
 import image from './header.jpg';
+import DeleteClass from '../classroom/DeleteClass';
 
 class Dashboard extends Component {
 	constructor(props) {
@@ -35,8 +36,6 @@ class Dashboard extends Component {
 						<Card
 							className="dashboard-card"
 							key={index}
-							as={Link}
-							to={`/classroom/${name._id}`}
 						>
 							<Image src={image} />
 							<Card.Content>
@@ -44,8 +43,15 @@ class Dashboard extends Component {
 								<Card.Meta>{name.section}</Card.Meta>
 							</Card.Content>
 							<Card.Content extra>
-								<Button icon="delete" floated="left" basic circular />
-								<Button icon="chevron right" floated="right" basic circular />
+								<DeleteClass/>								
+								{/* <Button icon="delete" floated="left" basic circular /> */}
+								<Button 
+									icon="chevron right" 
+									floated="right" 
+									basic circular 
+									as={Link}
+									to={`/classroom/${name._id}`}
+								/>
 							</Card.Content>
 						</Card>
 					))}

@@ -1,52 +1,71 @@
 import React, { Component } from 'react';
 import { Button, Icon, Header, Modal, Form } from 'semantic-ui-react';
 import '../navigation/Navigation.css';
+import * as api from "../../api";
 
-class AddClass extends Component {
+class EditPost extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      open: false
+      open: false,
+      author: " ",
+      content: " ",
+      timestamp: " ",
+      comments: [], 
+      classId: " ",
     };
   }
+  
+  open = () => this.setState({ open: true });
+  
+  close = () => {
+    this.setState({
+      open: false,
+      author: "",
+      content: "",
+      timestamp: "",
+      comments: [], 
+      classId: "",
+    });
+  };
 
-  handleChange = (e, { data }) => {
+  handleChange = (e,  data ) => {
     const state = this.state;
     state[e.target.name] = data.value;
     this.setState(state);
-  };
-
-  open = () => this.setState({ open: true });
-
-  close = () => {
-    //reset to initial values
-    this.setState({
-      open: false
-    });
-  };
+  }
+  
+//   handleSubmit =(event) =>{
+//     const {author, content, timestamp, comments, classId} = this.state;
+//     api.EditPost({author, content, timestamp, comments, classId})
+//     .then(result => {
+//       alert(result.data.message);
+//     }).catch(error => {
+//       alert(error);
+//     })
+//     this.close();
+//   }
 
   render() {
     return (
       <Modal
-        id="modal-block"
+        id = "modal-block"
         open={this.state.open}
         onOpen={this.open}
+        onClose={this.close}
         trigger={
-          <Button
-            className="ui circular icon button"
-            role="button"
-            id="add-post-button"
-          >
-            <i className="add icon" />
-          </Button>
+            <Button
+                floated='right'
+                role="button"
+                id="trash-button">
+                <i className="edit icon" />
+            </Button>
         }
       >
-        <Header icon="add circle" content="Add a student" />
+        <Header icon="edit circle" content="Edit Post" />
         <Modal.Content>
           <Form>
-            <Form.Input id="add-input" placeholder="First name" />
-            <Form.Input id="add-input" placeholder="Last name" />
-            <Form.Input id="add-input" placeholder="Student number" />
+            <Form.Input id="add-input" name='content' onChange={this.handleChange} placeholder="Share with your class" />
           </Form>
         </Modal.Content>
 
@@ -77,4 +96,4 @@ class AddClass extends Component {
   }
 }
 
-export default AddClass;
+export default EditPost;
