@@ -60,18 +60,18 @@ class Classroom extends Component {
                         active={activeItem === 'stream'} 
                         onClick={this.handleItemClick}
                         as={Link}
-                        to="/classroom/classroomFeed"/>
+                        to="/classroom/:_id"/>
                     <Menu.Item 
                         name='students' 
                         active={activeItem === 'students'} 
                         onClick={this.handleItemClick} 
                         as={Link}
-                        to="/classroom/students"/>
+                        to="/classroom/:_id/students"/>
                 </Menu>
 
                 <Segment attached='bottom' id="classroom-segment">
-					<Route exact path={`/classroom/${this.props.location.pathname}`} component={ClassroomFeed} />
-					<Route exact path="/classroom/students" component={Students} />
+					<Route exact path={`/classroom/:_id`} component={ClassroomFeed} />
+					<Route exact path="/classroom/:_id/students" component={Students} />
                 </Segment>
 
             </div>
