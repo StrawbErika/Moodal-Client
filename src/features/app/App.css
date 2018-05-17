@@ -1,3 +1,9 @@
 .App {
-	background-color: #dcdcdc;
+	background-color: #d4cbcb;
+	width: 100%;
+	height: 100%;
+}
+
+body {
+	width: 100% !important;
 }

@@ -6,10 +6,10 @@ import DeleteStudent from './DeleteStudent';
 import AddStudent from './AddStudent';
 
 const students = [
-	{ key: 1, name: "Erika Louise A. Nepomuceno" },
-	{ key: 2, name: "Erika Louise A. Nepomuceno" },
-	{ key: 3, name: "Erika Louise A. Nepomuceno" },
-	{ key: 4, name: "Erika Louise A. Nepomuceno" }
+    { key: 1, name: 'Erika Louise A. Nepomuceno' },
+    { key: 2, name: 'Erika Louise A. Nepomuceno' },
+    { key: 3, name: 'Erika Louise A. Nepomuceno' },
+    { key: 4, name: 'Erika Louise A. Nepomuceno' }
 ];
 
 class Students extends Component {
@@ -17,7 +17,7 @@ class Students extends Component {
         return (
             <div>
                 {students.map((student, index) => (
-                    <Segment textAlign='left'key={index}>
+                    <Segment textAlign="left" key={index}>
                         {student.name}
                         <DeleteStudent/>
                     </Segment>

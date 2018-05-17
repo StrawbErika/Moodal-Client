@@ -28,7 +28,6 @@ const sideItems = [
 ];
 
 class Navigation extends Component {
-
     state = { visible: false, routes: null};
     toggleVisibility = (e) => {
         e.stopPropagation();
@@ -57,9 +56,9 @@ class Navigation extends Component {
     
     render() {
         const { visible } = this.state;
-        const { activeItem } = this.state
+        const { activeItem } = this.state;
         return (
-            <div>
+            <div className="navigation-main">
                 <div className="ui pointing menu" id="nav">
                     <Button
                         onClick={this.toggleVisibility}
@@ -69,8 +68,8 @@ class Navigation extends Component {
                     >
                         <i aria-hidden="true" className="align justify icon" />
                     </Button>
-                    <Button id="header-button" as={Link} to='/'>
-                       <h1 id="header-text"> moodal </h1>
+                    <Button id="header-button" as={Link} to="/">
+                        <h1 id="header-text"> moodal </h1>
                     </Button>
                     <AddClass />
                     <Button
@@ -100,23 +99,22 @@ class Navigation extends Component {
                                 <Icon name="mail outline" />
                                 Email
                             </Menu.Item>
-                         
+
                             {sideItems.map((items, index) => (
-                                <Menu.Item 
+                                <Menu.Item
                                     name={items.iName}
                                     active={activeItem === items.iName}
                                     onClick={this.handleItemClick}
                                     as={Link}
                                     to={items.route}
                                     key={index}
-                                    >
-                                <Icon name="circle thin" />
-                                {items.iName}
+                                >
+                                    <Icon name="circle thin" />
+                                    {items.iName}
                                 </Menu.Item>
-                                
                             ))}
                         </Sidebar>
-                        <Sidebar.Pusher id="child">
+                        <Sidebar.Pusher id="child" className="main-section">
                             <Routes/>
                         </Sidebar.Pusher>
                     </Sidebar.Pushable>
