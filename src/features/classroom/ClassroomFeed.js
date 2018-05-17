@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import {Button, Popup } from 'semantic-ui-react';
+import {Popup } from 'semantic-ui-react';
 import ClassroomCards from './ClassroomCards';
 import './Classroom.css';
+import AddPost from './AddPost';
 
 class ClassroomFeed extends Component {
 
@@ -13,13 +14,7 @@ class ClassroomFeed extends Component {
                 </div>
                 <Popup
                     trigger={
-                        <Button
-                            className="ui circular icon button"
-                            role="button"
-                            id="add-post-button"
-                            >
-                            <i className="add icon" />
-                        </Button>
+                        <AddPost/>
                     }
                     content="Add a post here"
                 />
