@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
-import { Button, Segment, Popup } from 'semantic-ui-react';
+import { Segment } from 'semantic-ui-react';
 import '../classroom/Classroom.css';
+import './DeleteStudent';
+import DeleteStudent from './DeleteStudent';
+import AddStudent from './AddStudent';
 
 const students = [
 	{ key: 1, name: "Erika Louise A. Nepomuceno" },
@@ -16,28 +19,10 @@ class Students extends Component {
                 {students.map((student, index) => (
                     <Segment textAlign='left'key={index}>
                         {student.name}
-                        <Button
-                            floated='right'
-                            role="button"
-                            id="trash-button"
-                        >
-                            <i className="trash icon" />
-                        </Button>
-
+                        <DeleteStudent/>
                     </Segment>
                 ))}
-                <Popup
-                    trigger={
-                        <Button
-                            className="ui circular icon button"
-                            role="button"
-                            id="add-post-button"
-                            >
-                            <i className="add icon" />
-                        </Button>
-                    }
-                    content="Add a student here"
-                />
+                <AddStudent/>
             </div>
         );
     }
