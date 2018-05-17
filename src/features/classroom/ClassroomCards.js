@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { Input, Card, Button, Popup, Grid} from 'semantic-ui-react';
+import * as API from '../../api';
 import './Classroom.css';
 import 'semantic-ui-css/semantic.min.css';
 import { Input, Card, Button, Popup, Grid} from 'semantic-ui-react';
@@ -10,17 +12,26 @@ class ClassroomCards extends Component {
         super(props);
     
         this.state = {
-          open: false,
+            posts : []
         }
       }
-    
-    open = () => this.setState({ open: true })
+        
+    componentDidMount() {
+        console.log(this.props)
+        API.viewPosts(this.props.match.params._id)
+        .then(response => {
+            console.log(response.data.data)
+        }).catch(error => {
+            console.log(error)
+        });
+    }
 
     render() {
         const description = [
             'Amy is a violinist with 2 years experience in the wedding industry.',
             'She enjoys the outdoors and currently resides in upstate New York.'
         ].join(' ');
+        
         return (
             <Card id="classroom-card-size">
                 <Card.Content

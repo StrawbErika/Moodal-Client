@@ -15,9 +15,12 @@ class Students extends Component {
     }
 
     componentDidMount() {
+        console.log(this.props)
+        
         API.viewAllStudents(this.props.match.params._id)
             .then(response => {
-                this.setState({ students: response.data.data });
+                this.setState({ students: response.data.data.students });
+                console.log(this.state.students)
             })
             .catch(error => {
                 console.log(error);
@@ -36,7 +39,7 @@ class Students extends Component {
             <div>
                 {students.map((student, index) => (
                     <Segment textAlign="left" key={index}>
-                        {student.name}
+                        {student}
                         <DeleteStudent />
                     </Segment>
                 ))}
