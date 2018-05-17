@@ -44,7 +44,7 @@ class Dashboard extends Component {
 								<Card.Meta>{name.section}</Card.Meta>
 							</Card.Content>
 							<Card.Content extra>
-								<DeleteClass/>								
+								<DeleteClass classId={name._id} />								
 								{/* <Button icon="delete" floated="left" basic circular /> */}
 								<Button 
 									icon="chevron right" 

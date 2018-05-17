@@ -3,7 +3,6 @@ import { Input, Card, Button, Popup, Grid} from 'semantic-ui-react';
 import * as API from '../../api';
 import './Classroom.css';
 import 'semantic-ui-css/semantic.min.css';
-import { Input, Card, Button, Popup, Grid} from 'semantic-ui-react';
 import EditPost from './EditPosts';
 import DeletePost from './DeletePost';
 
@@ -53,7 +52,7 @@ class ClassroomCards extends Component {
                                     <Grid>
                                     <Grid.Row>
                                         <EditPost/>
-                                        <DeletePost/>
+                                        <DeletePost />
                                     </Grid.Row>
                                     </Grid>
                                 </Popup>

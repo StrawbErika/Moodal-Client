@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 import { Button, Icon, Header, Modal } from 'semantic-ui-react';
+import * as API from '../../api';
 import '../navigation/Navigation.css';
 
 class DeleteClass extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      open: false
+      open: false,
+      classId : this.props.classId
     };
   }
 
@@ -18,6 +20,18 @@ class DeleteClass extends Component {
       open: false
     });
   };
+
+  handleDelete = () => {
+    const { classId } = this.state;
+    console.log(classId);
+    API.deleteClass(classId)
+      .then(response => {
+        console.log(response.data.message)
+      }).catch (error => {
+        console.log(error)
+      })
+    this.close();
+  }
 
   render() {
     return (
@@ -36,7 +50,7 @@ class DeleteClass extends Component {
           <p>Would you like to delete this class?</p>
         </Modal.Content>
         <Modal.Actions>
-          <Button color='green' inverted>
+          <Button color='green' inverted onClick={this.handleDelete}>
             <Icon name='checkmark' /> Yes
           </Button>
           <Button basic color='red' inverted onClick={this.close}>
