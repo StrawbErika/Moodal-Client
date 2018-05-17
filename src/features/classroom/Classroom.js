@@ -70,7 +70,7 @@ class Classroom extends Component {
                 </Menu>
 
                 <Segment attached='bottom' id="classroom-segment">
-					<Route exact path="/classroom/classroomFeed" component={ClassroomFeed} />
+					<Route exact path={`/classroom/${this.props.location.pathname}`} component={ClassroomFeed} />
 					<Route exact path="/classroom/students" component={Students} />
                 </Segment>
 
