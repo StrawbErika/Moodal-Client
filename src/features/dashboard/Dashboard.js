@@ -36,7 +36,7 @@ class Dashboard extends Component {
 							className="dashboard-card"
 							key={index}
 							as={Link}
-							to={name.route}
+							to={`/classroom/${name.title.replace(" ", "").concat(name.section.replace("-", ""))}`}
 						>
 							<Image src={image} />
 							<Card.Content>
