@@ -12,7 +12,6 @@ class AddClass extends Component {
   }
 
   open = () => this.setState({ open: true });
-
   close = () => {
     this.setState({
       open: false,
@@ -41,7 +40,7 @@ class AddClass extends Component {
   render() {
     return (
       <Modal
-        id = "modal-block"
+        id="modal-block"
         open={this.state.open}
         onOpen={this.open}
         onClose={this.close}
@@ -58,8 +57,19 @@ class AddClass extends Component {
         <Header icon="add circle" content="Create Class" />
         <Modal.Content>
           <Form>
-            <Form.Input id="add-input" name='title' onChange={this.handleChange} placeholder="Class title" />
-            <Form.Input id="add-input" name='section' onChange={this.handleChange} placeholder="Section" />
+            <Form.Input
+              id="add-input"
+              name="title"
+              onChange={this.handleChange}
+              placeholder="Class title"
+            />
+            <Form.Input
+              id="add-input"
+              name="section"
+              onChange={this.handleChange}
+              placeholder="Section"
+            />
+            <Form.Input id="add-input" placeholder="Subject" />
           </Form>
         </Modal.Content>
 

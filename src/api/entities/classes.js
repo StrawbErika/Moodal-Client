@@ -4,8 +4,8 @@ export const viewClasses = () => {
 	return axios.get('http://localhost:3002/api/class');
 };
 
-export const addClass = (data) => {
-	return axios.post('http://localhost:3002/api/class', data);
+export const addClass = classInfo => {
+	return axios.post('http://localhost:3002/api/class', classInfo);
 };
 
 export const addPost = (data) => {
