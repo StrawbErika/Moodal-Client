@@ -5,15 +5,15 @@ import Homepage from '../homepage/Homepage';
 import './App.css';
 
 class App extends Component {
-	render() {
-		return (
-			<div className="App">
-				<Router>
-					<Navigation />
-				</Router>
-			</div>
-		);
-	}
+  render() {
+    return (
+      <div className="App">
+        <Router>
+          {!localStorage.getItem('login') ? <Homepage /> : <Navigation />}
+        </Router>
+      </div>
+    );
+  }
 }
 
 export default App;
