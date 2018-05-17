@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './Classroom.css';
 import 'semantic-ui-css/semantic.min.css';
-import { Input, Card } from 'semantic-ui-react';
+import { Input, Card, Button, Popup, Grid, Header } from 'semantic-ui-react';
 
 class ClassroomCards extends Component {
     render() {
@@ -14,8 +14,29 @@ class ClassroomCards extends Component {
                 <Card.Content
                     header={
                         <div>
-                            <span>Monina Carandang</span>
+                            <span>Monina Carandang
+                            <Popup
+                                    trigger={
+                                        <Button
+                                        floated='right'
+                                        role="button"
+                                        id="trash-button">
+                                        <i className="settings icon" />
+                                        </Button>
+                                    }
+                                    flowing
+                                    hoverable
+                                >
+                                    <Grid>
+                                    <Grid.Row>
+                                        <Button>Edit</Button>
+                                        <Button>Delete</Button>
+                                    </Grid.Row>
+                                    </Grid>
+                                </Popup>
+                            </span>
                             <Card.Meta>April 25</Card.Meta>
+                            
                         </div>
                     }
                 />

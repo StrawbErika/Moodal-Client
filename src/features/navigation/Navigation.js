@@ -29,10 +29,32 @@ const sideItems = [
 
 class Navigation extends Component {
 
-    state = { visible: false, routes: null };
-    toggleVisibility = () => this.setState({ visible: !this.state.visible });
+    state = { visible: false, routes: null};
+    toggleVisibility = (e) => {
+        e.stopPropagation();
+        this.setState({ visible: !this.state.visible});
+    }
     handleItemClick = (e, { name }) => this.setState({ activeItem: name })
+    close = () => {
+      this.setState({
+        visible: false
+      });
+    };
 
+    componentDidMount(){
+        window.onclick = (e) => {
+            // peter bernard so cute :* 
+            if(this.state.visible){
+                const sidebar =  document.getElementById("side-bar");
+                const side = sidebar.getBoundingClientRect();
+                const width =  side.right;
+                if(e.clientX > width){
+                    this.close();
+                }
+            } 
+        }
+    }
+    
     render() {
         const { visible } = this.state;
         const { activeItem } = this.state
@@ -60,7 +82,7 @@ class Navigation extends Component {
                     </Button>
                 </div>
                 <div id="main-size">
-                    <Sidebar.Pushable as={Segment}>
+                    <Sidebar.Pushable as={Segment} id="parent">
                         <Sidebar
                             as={Menu}
                             animation="overlay"
@@ -94,7 +116,7 @@ class Navigation extends Component {
                                 
                             ))}
                         </Sidebar>
-                        <Sidebar.Pusher>
+                        <Sidebar.Pusher id="child">
                             <Routes/>
                         </Sidebar.Pusher>
                     </Sidebar.Pushable>
