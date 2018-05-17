@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Route, Link } from 'react-router-dom';
-import { Button, Header, Divider, Menu, Segment} from 'semantic-ui-react';
+import { Popup, Grid, Button, Header, Divider, Menu, Segment} from 'semantic-ui-react';
 import ClassroomFeed from '../classroom/ClassroomFeed';
 import Students from '../students/Students';
 import './Classroom.css';
@@ -17,12 +17,36 @@ class Classroom extends Component {
                 <div id="classroom-header">
                     <Header as="h2">CMSC 100 2nd Sem 2017-18 </Header>
                     <p> Monina Carandang </p>
-                    <Button
-                    floated='right'
-                    role="button"
-                    id="edit-button">
-                        Edit Classroom
-                    </Button>
+                    <Popup
+                        trigger={
+                            <Button
+                            floated='right'
+                            role="button"
+                            id="edit-button">
+                            Edit Classroom
+                        </Button>
+                        }
+                        flowing
+                        hoverable
+                    >
+                        <Grid>
+                        <Grid.Row>
+                            <Button
+                                floated='right'
+                                role="button"
+                                id="trash-button">
+                                <i className="edit icon" />
+                            </Button>
+                            <Button
+                                floated='right'
+                                role="button"
+                                id="trash-button">
+                                <i className="trash icon" />
+                            </Button>
+                        </Grid.Row>
+                        </Grid>
+                    </Popup>
+    
 
                 </div>
                 <Divider />

@@ -95,7 +95,11 @@ class Navigation extends Component {
                             <Menu.Item>
                                 <Input placeholder="Search" id="search" />
                             </Menu.Item>
-                            <Menu.Item name="Email">
+                            <Menu.Item 
+                            name="Email"
+                            as={Link}
+                            to={"/mailbox"}
+                            >
                                 <Icon name="mail outline" />
                                 Email
                             </Menu.Item>
