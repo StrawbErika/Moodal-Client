@@ -18,7 +18,7 @@ class ClassroomCards extends Component {
     open = () => this.setState({ open: true })
 
     handleChange = (event) =>{
-        this.setState({value: event.target.value, count: 1});
+        this.setState({value: event.target.value});
     }
 
     handleSubmit =(event) =>{
