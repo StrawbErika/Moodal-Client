@@ -4,6 +4,16 @@ import 'semantic-ui-css/semantic.min.css';
 import { Input, Card, Button, Popup, Grid} from 'semantic-ui-react';
 
 class ClassroomCards extends Component {
+    constructor(props) {
+        super(props);
+    
+        this.state = {
+          open: false,
+        }
+      }
+    
+    open = () => this.setState({ open: true })
+
     render() {
         const description = [
             'Amy is a violinist with 2 years experience in the wedding industry.',
@@ -52,7 +62,9 @@ class ClassroomCards extends Component {
                 />
                 <Card.Content description={description} />
                 <Card.Content extra id="comment-segment">
-                    <Input placeholder="Add a comment" id="comment-input" />
+                    <form onSubmit={this.handleSubmit}>
+                    <Input placeholder="Add a comment" type="submit" value={this.state.value} onChange={this.handleChange} id="comment-input" />
+                    </form>
                 </Card.Content>
             </Card>
         );
