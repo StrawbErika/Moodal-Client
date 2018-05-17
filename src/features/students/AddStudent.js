@@ -10,6 +10,12 @@ class AddClass extends Component {
     };
   }
 
+  handleChange = (e, { data }) => {
+    const state = this.state;
+    state[e.target.name] = data.value;
+    this.setState(state);
+  };
+
   open = () => this.setState({ open: true });
 
   close = () => {
@@ -22,17 +28,17 @@ class AddClass extends Component {
   render() {
     return (
       <Modal
-        id = "modal-block"
+        id="modal-block"
         open={this.state.open}
         onOpen={this.open}
         trigger={
-            <Button
-                className="ui circular icon button"
-                role="button"
-                id="add-post-button"
-                >
-                <i className="add icon" />
-            </Button>
+          <Button
+            className="ui circular icon button"
+            role="button"
+            id="add-post-button"
+          >
+            <i className="add icon" />
+          </Button>
         }
       >
         <Header icon="add circle" content="Add a student" />

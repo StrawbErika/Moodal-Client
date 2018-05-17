@@ -1,23 +1,52 @@
 import React, { Component } from 'react';
 import { Button, Icon, Header, Modal, Form } from 'semantic-ui-react';
 import '../navigation/Navigation.css';
+import * as api from "../../api";
 
 class AddPost extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      open: false
+      open: false,
+      author: "",
+      content: "",
+      timestamp: "",
+      comments: [], 
+      classId: null,
     };
   }
-
+  
   open = () => this.setState({ open: true });
-
+  
   close = () => {
-    //reset to initial values
     this.setState({
-      open: false
+      open: false,
+      author: "",
+      content: "",
+      timestamp: "",
+      comments: [], 
+      classId: null,
     });
   };
+
+  handleChange = (e,  data ) => {
+    const state = this.state;
+    state[e.target.name] = data.value;
+    this.setState(state);
+  }
+
+  handleSubmit =(event) =>{
+    const {author, content, timestamp, comments, classId} = this.state;
+    api.addPost({author, content, timestamp, comments: [], classId})
+    .then(result => {
+      alert(result.data.message);
+    }).catch(error => {
+      alert(error);
+    })
+    this.close();
+  }
+
+
 
   render() {
     return (
@@ -39,7 +68,7 @@ class AddPost extends Component {
         <Header icon="add circle" content="Post" />
         <Modal.Content>
           <Form>
-            <Form.Input id="add-input" placeholder="Share with your class" />
+            <Form.Input id="add-input" name='content' onChange={this.handleChange} placeholder="Share with your class" />
           </Form>
         </Modal.Content>
 
