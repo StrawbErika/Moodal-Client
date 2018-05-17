@@ -9,24 +9,11 @@ class ClassroomCards extends Component {
     
         this.state = {
           open: false,
-          value: "",
-          comments: [],
-          count: 0,
         }
       }
     
     open = () => this.setState({ open: true })
 
-    handleChange = (event) =>{
-        this.setState({value: event.target.value});
-    }
-
-    handleSubmit =(event) =>{
-        // this.setState({comments[count] : value});
-        event.preventDefault();
-    }
-    
-    
     render() {
         const description = [
             'Amy is a violinist with 2 years experience in the wedding industry.',

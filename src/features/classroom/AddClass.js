@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Button, Icon, Header, Modal, Form } from 'semantic-ui-react';
 import '../navigation/Navigation.css';
+import * as api from "../../api";
 
 class AddClass extends Component {
   constructor(props) {
@@ -13,16 +14,28 @@ class AddClass extends Component {
   open = () => this.setState({ open: true });
 
   close = () => {
-    //reset to initial values
     this.setState({
-      open: false
+      open: false,
+      title: "",
+      section: ""
     });
   };
 
-  handleChange = (e, { data }) => {
+  handleChange = (e,  data ) => {
     const state = this.state;
     state[e.target.name] = data.value;
     this.setState(state);
+  }
+
+  handleSubmit =(event) =>{
+    const {title, section} = this.state;
+    api.addClass({title, section, students:[], posts:[], canPost: true, canComment: true})
+    .then(result => {
+      alert(result.data.message);
+    }).catch(error => {
+      alert(error);
+    })
+    this.close();
   }
 
   render() {
