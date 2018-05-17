@@ -3,8 +3,16 @@
     src: url('/fonts/Comfortaa-Bold.ttf');
 }
 
-#header-text {
-    font-family: 'Comfortaa';
+#parent{
+    overflow: hidden;
+}
+
+#child{
+    overflow: auto;
+}
+
+#header-text{
+    font-family: "Comfortaa";
     text-align: center;
     color: #ffad69;
 }
