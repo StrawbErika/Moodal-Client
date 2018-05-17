@@ -11,3 +11,4 @@ export const addClass = classInfo => {
 export const addPost = (data) => {
 	return axios.post('http://localhost:3002/api/post', data);
 };
+ 

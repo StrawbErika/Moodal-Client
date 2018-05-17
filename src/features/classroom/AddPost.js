@@ -8,11 +8,11 @@ class AddPost extends Component {
     super(props);
     this.state = {
       open: false,
-      author: "",
-      content: "",
-      timestamp: "",
+      author: " ",
+      content: " ",
+      timestamp: " ",
       comments: [], 
-      classId: null,
+      classId: " ",
     };
   }
   
@@ -25,7 +25,7 @@ class AddPost extends Component {
       content: "",
       timestamp: "",
       comments: [], 
-      classId: null,
+      classId: "",
     });
   };
 
@@ -34,10 +34,10 @@ class AddPost extends Component {
     state[e.target.name] = data.value;
     this.setState(state);
   }
-
+  
   handleSubmit =(event) =>{
     const {author, content, timestamp, comments, classId} = this.state;
-    api.addPost({author, content, timestamp, comments: [], classId})
+    api.addPost({author, content, timestamp, comments, classId})
     .then(result => {
       alert(result.data.message);
     }).catch(error => {

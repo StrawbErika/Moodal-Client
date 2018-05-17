@@ -69,7 +69,6 @@ class AddClass extends Component {
               onChange={this.handleChange}
               placeholder="Section"
             />
-            <Form.Input id="add-input" placeholder="Subject" />
           </Form>
         </Modal.Content>
 
