@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Route } from 'react-router-dom';
 import { Card, Button, Image } from 'semantic-ui-react';
 import * as API from '../../api';
 import './Dashboard.css';
 import image from './header.jpg';
+import Classroom from '../classroom/Classroom';
 
 class Dashboard extends Component {
 	constructor(props) {

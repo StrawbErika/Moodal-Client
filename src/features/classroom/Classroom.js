@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route, Link } from 'react-router-dom';
+import { Route, Link, Switch } from 'react-router-dom';
 import {
     Popup,
     Grid,
@@ -20,6 +20,7 @@ class Classroom extends Component {
         routes: null,
         id: this.props.match.params._id
     };
+    
     toggleVisibility = () => this.setState({ visible: !this.state.visible });
     handleItemClick = (e, { name }) => this.setState({ activeItem: name });
 
@@ -65,30 +66,30 @@ class Classroom extends Component {
                         active={activeItem === 'stream'}
                         onClick={this.handleItemClick}
                         as={Link}
-                        to={`/classroom/${this.state.id}`}
+                        to={`/classroom/:_id`}
                     />
                     <Menu.Item
                         name="students"
                         active={activeItem === 'students'}
                         onClick={this.handleItemClick}
                         as={Link}
-                        to={`/classroom/${
-                            this.props.match.params._id
-                        }/students`}
+                        to={`/classroom/${this.state.id}/students`}
                     />
                 </Menu>
 
                 <Segment attached="bottom" id="classroom-segment">
-                    <Route
-                        exact
-                        path={`/classroom/:_id`}
-                        component={ClassroomFeed}
-                    />
-                    <Route
-                        exact
-                        path="/classroom/:_id/students"
-                        component={Students}
-                    />
+                    <Switch>
+                        <Route
+                            exact
+                            path={`/classroom/:_id`}
+                            component={ClassroomFeed}
+                        />
+                        <Route
+                            exact
+                            path={`/classroom/:_id/students`}
+                            component={Students}
+                        />
+                    </Switch>
                 </Segment>
             </div>
         );
