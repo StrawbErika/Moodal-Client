@@ -10,6 +10,7 @@ class App extends Component {
 			<div className="App">
 				<Router>
 					{/* <Homepage /> */}
+
 					<Navigation />
 				</Router>
 			</div>

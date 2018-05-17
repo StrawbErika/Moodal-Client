@@ -1,26 +1,46 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { Card, Button, Image } from 'semantic-ui-react';
+import * as API from '../../api';
 import './Dashboard.css';
 import image from './header.jpg';
 
-const classes = [
-	{ key: 1, course: 'CMSC 100', section: 'UV-1L', teacher: 'Monina Carandang', route:'/classroom/classroomFeed' },
-	{ key: 2, course: 'CMSC 100', section: 'UV-2L', teacher: 'Monina Carandang', route:'/classroom/classroomFeed' },
-	{ key: 3, course: 'CMSC 100', section: 'UV-3L', teacher: 'Monina Carandang', route:'/classroom/classroomFeed' },
-	{ key: 4, course: 'CMSC 100', section: 'UV-4L', teacher: 'Monina Carandang', route:'/classroom/classroomFeed' }
-];
-
 class Dashboard extends Component {
+	constructor(props) {
+		super(props);
+
+		this.state = {
+			classes: []
+		};
+	}
+
+	componentDidMount() {
+		API.viewClasses()
+			.then(result => {
+				console.log(result.data.data);
+				this.setState({ classes: result.data.data });
+			})
+			.catch(error => {
+				console.log(error);
+			});
+	}
+
 	render() {
+		const { classes } = this.state;
+
 		return (
 			<div className="dashboard">
 				<Card.Group>
 					{classes.map((name, index) => (
-						<Card className="dashboard-card" key={index} as={Link} to={name.route}>
+						<Card
+							className="dashboard-card"
+							key={index}
+							as={Link}
+							to={name.route}
+						>
 							<Image src={image} />
 							<Card.Content>
-								<Card.Header>{name.course}</Card.Header>
+								<Card.Header>{name.title}</Card.Header>
 								<Card.Meta>{name.section}</Card.Meta>
 							</Card.Content>
 							<Card.Content extra>
