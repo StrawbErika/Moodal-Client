@@ -45,9 +45,8 @@ class AddClass extends Component {
         <Header icon="add circle" content="Create Class" />
         <Modal.Content>
           <Form>
-            <Form.Input id="add-input" name='title' onChange={this.handleChange} placeholder="Class name" />
-            <Form.Input id="add-input" placeholder="Section" />
-            <Form.Input id="add-input" placeholder="Subject" />
+            <Form.Input id="add-input" name='title' onChange={this.handleChange} placeholder="Class title" />
+            <Form.Input id="add-input" name='section' onChange={this.handleChange} placeholder="Section" />
           </Form>
         </Modal.Content>
 

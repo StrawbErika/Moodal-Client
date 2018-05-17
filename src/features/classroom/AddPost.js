@@ -19,6 +19,13 @@ class AddPost extends Component {
     });
   };
 
+  handleChange = (e, { data }) => {
+    const state = this.state;
+    state[e.target.name] = data.value;
+    this.setState(state);
+  }
+
+
   render() {
     return (
       <Modal
@@ -39,7 +46,7 @@ class AddPost extends Component {
         <Header icon="add circle" content="Post" />
         <Modal.Content>
           <Form>
-            <Form.Input id="add-input" placeholder="Share with your class" />
+            <Form.Input id="add-input" name='content' onChange={this.handleChange} placeholder="Share with your class" />
           </Form>
         </Modal.Content>
 
