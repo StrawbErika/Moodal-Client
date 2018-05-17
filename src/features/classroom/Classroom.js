@@ -30,20 +30,24 @@ class Classroom extends Component {
                         hoverable
                     >
                         <Grid>
+                        <Grid.Column>
+                                                        
                         <Grid.Row>
-                            <Button
-                                floated='right'
-                                role="button"
-                                id="trash-button">
-                                <i className="edit icon" />
-                            </Button>
-                            <Button
-                                floated='right'
-                                role="button"
-                                id="trash-button">
-                                <i className="trash icon" />
+                            <Button>
+                            Students can post & comment
                             </Button>
                         </Grid.Row>
+                        <Grid.Row>
+                            <Button>
+                            Students can only comment
+                            </Button>
+                        </Grid.Row>
+                        <Grid.Row>
+                            <Button>
+                            Students can do none
+                            </Button>
+                        </Grid.Row>
+                        </Grid.Column>
                         </Grid>
                     </Popup>
     
