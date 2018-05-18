@@ -25,7 +25,7 @@ class EditPost extends Component {
       content: "",
       timestamp: "",
       comments: [], 
-      classId: "",
+      propsId: "",
     });
   };
 
@@ -35,16 +35,17 @@ class EditPost extends Component {
     this.setState(state);
   }
   
-//   handleSubmit =(event) =>{
-//     const {author, content, timestamp, comments, classId} = this.state;
-//     api.EditPost({author, content, timestamp, comments, classId})
-//     .then(result => {
-//       alert(result.data.message);
-//     }).catch(error => {
-//       alert(error);
-//     })
-//     this.close();
-//   }
+  handleSubmit =(event) =>{
+    const {author, content, timestamp, comments, propsId} = this.state;
+    console.log(this.props);  
+    api.editPost(this.props. _id, {author, content, timestamp, comments})
+    .then(result => {
+      alert(result.data.message);
+    }).catch(error => {
+      alert(error);
+    })
+    this.close();
+  }
 
   render() {
     return (

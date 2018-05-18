@@ -18,8 +18,8 @@ class ClassroomCards extends Component {
     try {
       const { data } = await API.viewPosts(this.props.classId);
       console.log(data.data)
-      this.setState({ posts : data.data });
-    } catch(err) {
+      this.setState({ posts :data.data });
+    } catch(err) { 
       console.log(err);
     }
   }
@@ -36,7 +36,7 @@ class ClassroomCards extends Component {
                   <div>
                     <span>
                       {post.author}
-                            <EditPost />
+                            <EditPost propsId={post.classId} _id={post._id}/>
                             <DeletePost />
                     </span>
                     <Card.Meta>{post.timestamp}</Card.Meta>

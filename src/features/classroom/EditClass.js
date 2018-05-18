@@ -62,7 +62,7 @@ class EditClass extends Component {
 
   handleSubmit =(event) =>{
     const {title, section, canComment, canPost} = this.state;
-    api.editClass({title, section, students:[], posts:[], canPost, canComment, classId : this.props.classId})
+    api.editClass({classId : this.props.classId, title, section, students:[], posts:[], canPost, canComment})
     .then(result => {
       alert(result.data.message);
     }).catch(error => {     
