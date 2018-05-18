@@ -19,3 +19,11 @@ export const deleteClass = classId => {
 export const editClass = classId =>{
   return axios.put(`http://localhost:3002/api/class/${classId.classId}`, classId);
 }
+
+export const getAllComment = () => {
+  return axios.get('http://localhost:3002/api/comment');
+}
+
+export const addComment = data => {
+  return axios.post('http://localhost:3002/api/comment', data)
+}
