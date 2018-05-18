@@ -24,10 +24,20 @@ class ClassroomCards extends Component {
     }
   }
 
+  handleChange = (e, data) => {
+    const { posts } = this.state;
+     console.log(data.value)
+
+    const lol = posts.filter(x => x.content.includes(data.value))
+
+    this.setState({ posts : lol })
+  }
+
   render() {
     const { posts } = this.state; 
     return (
       <div>
+        <Input label="Search posts" fluid placeholder='Search...' onChange={this.handleChange} />
         {
           posts.map((post, index) => {
             return <Card id="classroom-card-size" key={index}>
