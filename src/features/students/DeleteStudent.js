@@ -39,7 +39,7 @@ class DeleteStudent extends Component {
           <p>Would you like to remove this student from your list?</p>
         </Modal.Content>
         <Modal.Actions>
-          <Button color='green' inverted>
+          <Button color='green' inverted onClick={this.handleDelete}>
             <Icon name='checkmark' /> Yes
           </Button>
           <Button basic color='red' inverted onClick={this.close}>

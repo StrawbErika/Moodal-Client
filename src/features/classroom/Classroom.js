@@ -28,6 +28,7 @@ class Classroom extends Component {
         try {
             const { data } = await API.viewClassById(this.props.match.params._id);
             this.setState({ subject : data.data });            
+            console.log(data.data)
         } catch(err) {
             console.log(err)
         }
@@ -42,7 +43,7 @@ class Classroom extends Component {
             <div id="classroom-size">
                 <div id="classroom-header">
                     <Header as="h2">{`${subject.title} ${subject.section}`}</Header>
-                    <p>{}</p>
+                    <p>{subject.name}</p>
                     <EditClass classId={this.props.match.params._id}/>
                 </div>
                 <Divider />

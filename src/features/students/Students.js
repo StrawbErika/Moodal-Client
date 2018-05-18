@@ -20,7 +20,8 @@ class Students extends Component {
     async componentDidMount() {
         try {
             const { data } = await API.viewAllStudents(this.props.classId)
-            this.setState({ students : data.data })
+            this.setState({ students : data.data.students })
+            // console.log(data.data)
         } catch(err) {
             console.log(err)
         }
