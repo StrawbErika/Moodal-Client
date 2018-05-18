@@ -14,17 +14,17 @@ class Students extends Component {
         };
     }
 
-    componentDidMount() {
-        console.log(this.props)
+    componentDidMount(nextProps) {
+        console.log(nextProps)
         
-        API.viewAllStudents(this.props.match.params._id)
-            .then(response => {
-                this.setState({ students: response.data.data.students });
-                console.log(this.state.students)
-            })
-            .catch(error => {
-                console.log(error);
-            });
+        // API.viewAllStudents(this.props.userId)
+        //     .then(response => {
+        //         this.setState({ students: response.data.data.students });
+        //         console.log(this.state.students)
+        //     })
+        //     .catch(error => {
+        //         console.log(error);
+        //     });
     }
 
     handleChange = (e, { data }) => {

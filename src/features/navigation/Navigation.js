@@ -1,9 +1,13 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Switch, Route } from 'react-router-dom';
 import { Sidebar, Segment, Button, Menu, Icon, Input } from 'semantic-ui-react';
 import AddClass from '../classroom/AddClass';
 import Routes from '../routes/Routes';
+import Dashboard from '../dashboard/Dashboard';
+import Classroom from '../classroom/Classroom';
+import Mailbox from '../mailbox/Mailbox';
 import './Navigation.css';
+
 
 const sideItems = [
     { key: 1, iName: 'CMSC 100', route: '/classroom/classroomFeed' },
@@ -24,7 +28,6 @@ const sideItems = [
     { key: 16, iName: 'CMSC 140', route: '/classroom/classroomFeed' },
     { key: 17, iName: 'CMSC 140', route: '/classroom/classroomFeed' },
     { key: 18, iName: 'CMSC 140', route: '/classroom/classroomFeed' }
-
 ];
 
 class Navigation extends Component {
@@ -119,7 +122,11 @@ class Navigation extends Component {
                             ))}
                         </Sidebar>
                         <Sidebar.Pusher id="child" className="main-section">
-                            <Routes/>
+                            <Switch>
+                                <Route exact path='/' component={Dashboard} />
+                                <Route exact path='/classroom/:_id' component={Classroom} />
+                                <Route exact path='/mailbox' component={Mailbox} />
+                            </Switch>
                         </Sidebar.Pusher>
                     </Sidebar.Pushable>
                 </div>

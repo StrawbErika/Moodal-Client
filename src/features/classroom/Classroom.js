@@ -11,6 +11,7 @@ import {
 } from 'semantic-ui-react';
 import ClassroomFeed from '../classroom/ClassroomFeed';
 import Students from '../students/Students';
+import * as API from '../../api';
 import './Classroom.css';
 
 class Classroom extends Component {
@@ -18,19 +19,29 @@ class Classroom extends Component {
         activeItem: 'stream',
         visible: false,
         routes: null,
-        id: this.props.match.params._id
+        id: this.props.match.params._id,
+        subject : {}
     };
     
+    async componentDidMount() {
+        try {
+            const { data } = await API.viewClassById(this.props.match.params._id);
+            this.setState({ subject : data.data });            
+        } catch(err) {
+            console.log(err)
+        }
+    }
+
     toggleVisibility = () => this.setState({ visible: !this.state.visible });
     handleItemClick = (e, { name }) => this.setState({ activeItem: name });
 
     render() {
-        const { activeItem } = this.state;
+        const { activeItem, subject } = this.state;
         return (
             <div id="classroom-size">
                 <div id="classroom-header">
-                    <Header as="h2">CMSC 100 2nd Sem 2017-18 </Header>
-                    <p> Monina Carandang </p>
+                    <Header as="h2">{`${subject.title} ${subject.section}`}</Header>
+                    <p>{}</p>
                     <Popup
                         trigger={
                             <Button
@@ -65,31 +76,20 @@ class Classroom extends Component {
                         name="stream"
                         active={activeItem === 'stream'}
                         onClick={this.handleItemClick}
-                        as={Link}
-                        to={`/classroom/:_id`}
                     />
                     <Menu.Item
                         name="students"
                         active={activeItem === 'students'}
                         onClick={this.handleItemClick}
-                        as={Link}
-                        to={`/classroom/${this.state.id}/students`}
                     />
                 </Menu>
 
                 <Segment attached="bottom" id="classroom-segment">
-                    <Switch>
-                        <Route
-                            exact
-                            path={`/classroom/:_id`}
-                            component={ClassroomFeed}
-                        />
-                        <Route
-                            exact
-                            path={`/classroom/:_id/students`}
-                            component={Students}
-                        />
-                    </Switch>
+                    {
+                        activeItem === 'stream' ?
+                            <ClassroomFeed classId={this.props.match.params._id} />
+                        :   <Students classId={this.props.match.params._id} />
+                    }
                 </Segment>
             </div>
         );

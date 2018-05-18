@@ -32,6 +32,8 @@ class Dashboard extends Component {
 
 		return (
 			<div className="dashboard">
+				<Route exact path='/classroom/:_id' component={Classroom} />
+
 				<Card.Group>
 					{classes.map((name, index) => (
 						<Card
@@ -44,7 +46,7 @@ class Dashboard extends Component {
 								<Card.Meta>{name.section}</Card.Meta>
 							</Card.Content>
 							<Card.Content extra>
-								<DeleteClass/>								
+								<DeleteClass classId={name._id} />								
 								{/* <Button icon="delete" floated="left" basic circular /> */}
 								<Button 
 									icon="chevron right" 
