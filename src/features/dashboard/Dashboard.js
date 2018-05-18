@@ -32,6 +32,8 @@ class Dashboard extends Component {
 
 		return (
 			<div className="dashboard">
+				<Route exact path='/classroom/:_id' component={Classroom} />
+
 				<Card.Group>
 					{classes.map((name, index) => (
 						<Card

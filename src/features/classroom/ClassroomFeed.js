@@ -10,11 +10,11 @@ class ClassroomFeed extends Component {
         return (
             <div>
                 <div id="classroom-cards">
-                <ClassroomCards/>
+                <ClassroomCards classId={this.props.classId} />
                 </div>
                 <Popup
                     trigger={
-                        <AddPost/>
+                        <AddPost classId={this.props.classId} />
                     }
                     content="Add a post here"
                 />

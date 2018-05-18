@@ -8,11 +8,11 @@ class AddPost extends Component {
     super(props);
     this.state = {
       open: false,
-      author: " ",
+      author: JSON.parse(localStorage.getItem('login')).email,
       content: " ",
-      timestamp: " ",
+      timestamp: new Date(),
       comments: [], 
-      classId: " ",
+      classId: this.props.classId,
     };
   }
   
@@ -35,18 +35,20 @@ class AddPost extends Component {
     this.setState(state);
   }
   
-  handleSubmit =(event) =>{
+  handleSubmit = async (event) =>{
     const {author, content, timestamp, comments, classId} = this.state;
-    api.addPost({author, content, timestamp, comments, classId})
-    .then(result => {
-      alert(result.data.message);
-    }).catch(error => {
-      alert(error);
-    })
-    this.close();
+    
+    try {
+      console.log(this.state)
+      const { data } = await api.addPost(this.state);
+
+      console.log(data.message);
+      this.close();
+    } catch(err) {
+      console.log(err);
+    }
+
   }
-
-
 
   render() {
     return (
