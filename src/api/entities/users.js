@@ -7,3 +7,7 @@ export const addUser = data => {
 export const getAllUsers = () => {
   return axios.get('http://localhost:3002/api/user');
 };
+
+export const viewUser = _id => {
+  return axios.get(`http://localhost:3002/api/user/${_id}`);
+};

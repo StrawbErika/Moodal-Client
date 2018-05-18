@@ -24,9 +24,6 @@ class ClassroomCards extends Component {
       const { data } = await API.viewPosts(this.props.classId);
       console.log(data.data)
       this.setState({ posts : data.data });
-
-      const { data : com } = await API.getAllComment();
-      this.setState({ comments : com.data })
     } catch(err) {
       console.log(err);
     }
@@ -49,8 +46,8 @@ class ClassroomCards extends Component {
 
   handleSubmit = async (e) => {
     try {
-      console.log(this.state)
-      const { data } = await API.addPost(this.state);
+      console.warn(e.target.dataset);
+      const { data } = await API.addComment({ ...this.state, postId: e.target.dataset.postid, classId: this.props.classId });
       console.log(data.message)
     } catch(err) {
       console.log(err)
@@ -81,7 +78,7 @@ class ClassroomCards extends Component {
               <Card.Content extra id="comment-segment">
                 
                   {
-                    comments.map((com, i) => 
+                    post.comments.map((com, i) => 
                       <Segment key={i}>
                         {com.author} - {com.content}
                         <Button floated='right' icon='delete' />
@@ -96,7 +93,7 @@ class ClassroomCards extends Component {
                     onChange={this.handleChange}
                     name="content"
                     id="comment-input" />
-                    <Button content='Comment' onClick={this.handleSubmit} />
+                    <Button content='Comment' data-postId={post._id} onClick={this.handleSubmit} />
               </Card.Content>
             </Card>
           })

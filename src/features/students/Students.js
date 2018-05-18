@@ -2,8 +2,11 @@ import React, { Component } from 'react';
 import { Segment } from 'semantic-ui-react';
 import '../classroom/Classroom.css';
 import './DeleteStudent';
+import './AddStudent';
 import DeleteStudent from './DeleteStudent';
+import AddStudent from './AddStudent';
 import * as API from '../../api';
+
 
 class Students extends Component {
     constructor() {
@@ -16,8 +19,7 @@ class Students extends Component {
 
     async componentDidMount() {
         try {
-            const { data } = await API.viewAllStudents(this.props.userId)
-
+            const { data } = await API.viewAllStudents(this.props.classId)
             this.setState({ students : data.data })
         } catch(err) {
             console.log(err)
@@ -37,9 +39,10 @@ class Students extends Component {
                 {students.map((student, index) => (
                     <Segment textAlign="left" key={index}>
                         {student}
-                        <DeleteStudent />
+                        <DeleteStudent classId={this.props.classId}/>
                     </Segment>
                 ))}
+                <AddStudent classId={this.props.classId}/>
             </div>
         );
     }
