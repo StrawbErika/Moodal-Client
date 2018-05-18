@@ -46,21 +46,8 @@ class ClassroomCards extends Component {
                   <div>
                     <span>
                       {post.author}
-                      <Popup
-                        trigger={
-                          <Button floated="right" role="button" id="trash-button">
-                            <i className="settings icon" />
-                          </Button>
-                        }
-                        flowing
-                        hoverable>
-                        <Grid>
-                          <Grid.Row>
                             <EditPost />
                             <DeletePost />
-                          </Grid.Row>
-                        </Grid>
-                      </Popup>
                     </span>
                     <Card.Meta>{post.timestamp}</Card.Meta>
                   </div>

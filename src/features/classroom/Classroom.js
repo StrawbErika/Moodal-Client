@@ -13,6 +13,7 @@ import ClassroomFeed from '../classroom/ClassroomFeed';
 import Students from '../students/Students';
 import * as API from '../../api';
 import './Classroom.css';
+import EditClass from './EditClass';
 
 class Classroom extends Component {
     state = {
@@ -42,33 +43,7 @@ class Classroom extends Component {
                 <div id="classroom-header">
                     <Header as="h2">{`${subject.title} ${subject.section}`}</Header>
                     <p>{}</p>
-                    <Popup
-                        trigger={
-                            <Button
-                                floated="right"
-                                role="button"
-                                id="edit-button"
-                            >
-                                Edit Classroom
-                            </Button>
-                        }
-                        flowing
-                        hoverable
-                    >
-                        <Grid>
-                            <Grid.Column>
-                                <Grid.Row>
-                                    <Button>Students can post & comment</Button>
-                                </Grid.Row>
-                                <Grid.Row>
-                                    <Button>Students can only comment</Button>
-                                </Grid.Row>
-                                <Grid.Row>
-                                    <Button>Students can do none</Button>
-                                </Grid.Row>
-                            </Grid.Column>
-                        </Grid>
-                    </Popup>
+                    <EditClass classId={this.props.match.params._id}/>
                 </div>
                 <Divider />
                 <Menu attached="top" tabular id="classroom-buttons">
