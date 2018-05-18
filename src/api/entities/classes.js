@@ -15,3 +15,7 @@ export const addClass = classInfo => {
 export const deleteClass = classId => {
   return axios.delete(`http://localhost:3002/api/class/${classId}`);
 }
+
+export const editClass = classId =>{
+  return axios.put(`http://localhost:3002/api/class/${classId.classId}`, classId);
+}
